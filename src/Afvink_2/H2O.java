@@ -1,4 +1,4 @@
-// Christel van Haren, BIN-2c
+package Afvink_2;// Christel van Haren, BIN-2c
 // Blok 5, Afvinkopdracht 2, het watermolecuul tekenen
 
 import javax.swing.*;
