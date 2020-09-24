@@ -1,3 +1,6 @@
+// Christel van Haren, BIN-2c
+// Blok 5, afvinkopdracht 3, Tic-Tac-Toe
+
 package Afvink_3;
 
 import java.awt.GridLayout;
@@ -7,8 +10,10 @@ import javax.swing.*;
 
 public class TicTacToe extends JPanel
 {
+    // Als de 0 hier een even getal is dan wordt er een X geplaatst,
+    // en bij een oneven getal wordt er een O geplaatst.
     JButton[] buttons = new JButton[9];
-    int alternate = 0;//if this number is a even, then put a X. If it's odd, then put an O
+    int alternate = 0;
 
     public TicTacToe()
     {
@@ -28,6 +33,7 @@ public class TicTacToe extends JPanel
             //because this whole class is a JPanel already
         }
     }
+
     public void resetButtons()
     {
         for(int i = 0; i <= 8; i++)
@@ -42,19 +48,17 @@ public class TicTacToe extends JPanel
 
         public void actionPerformed(ActionEvent e)
         {
-
+            // Als er op een knop geklikt wordt en je kunt die
             JButton buttonClicked = (JButton)e.getSource(); //get the particular button that was clicked
             if(alternate%2 == 0)
                 buttonClicked.setText("X");
             else
                 buttonClicked.setText("O");
-
             if(checkForWin())
             {
                 JOptionPane.showConfirmDialog(null, "Game Over.");
                 resetButtons();
             }
-
             alternate++;
 
         }
