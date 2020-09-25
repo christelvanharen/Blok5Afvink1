@@ -16,7 +16,7 @@ public class TicTacToe extends JPanel
     int alternate = 0;
 
     public TicTacToe()
-    {
+    { // Hier word de lay-out geplaatst van 3x3
         setLayout(new GridLayout(3,3));
         initializebuttons();
     }
@@ -28,9 +28,7 @@ public class TicTacToe extends JPanel
             buttons[i] = new JButton();
             buttons[i].setText("");
             buttons[i].addActionListener(new buttonListener());
-
-            add(buttons[i]); //adds this button to JPanel (note: no need for JPanel.add(...)
-            //because this whole class is a JPanel already
+            add(buttons[i]);
         }
     }
 
@@ -42,43 +40,44 @@ public class TicTacToe extends JPanel
         }
     }
 
-    // when a button is clicked, it generates an ActionEvent. Thus, each button needs an ActionListener. When it is clicked, it goes to this listener class that I have created and goes to the actionPerformed method. There (and in this class), we decide what we want to do.
+    // Wanneer er op een knop geklikt, dan wordt ActionEvent
+    // aangeroepen.
     private class buttonListener implements ActionListener
     {
-
         public void actionPerformed(ActionEvent e)
         {
-            // Als er op een knop geklikt wordt en je kunt die
-            JButton buttonClicked = (JButton)e.getSource(); //get the particular button that was clicked
+            // Als er op een knop geklikt wordt dan komt er een X of
+            // O te staan.
+            JButton buttonClicked = (JButton)e.getSource();
             if(alternate%2 == 0)
                 buttonClicked.setText("X");
             else
                 buttonClicked.setText("O");
             if(checkForWin())
             {
-                JOptionPane.showConfirmDialog(null, "Game Over.");
+                JOptionPane.showConfirmDialog(null, "Game Over. Try  " +
+                        "again");
                 resetButtons();
             }
             alternate++;
-
         }
 
         public boolean checkForWin()
         {
-            /**   Reference: the button array is arranged like this as the board
-             *      0 | 1 | 2
-             *      3 | 4 | 5
-             *      6 | 7 | 8
+            /*   Reference: the button array is arranged like this as the board
+                   0 | 1 | 2
+                   3 | 4 | 5
+                   6 | 7 | 8
              */
-            //horizontal win check
-            if( checkAdjacent(0,1) && checkAdjacent(1,2) ) //no need to put " == true" because the default check is for true
+            // Horizontaal winnen
+            if( checkAdjacent(0,1) && checkAdjacent(1,2) )
                 return true;
             else if( checkAdjacent(3,4) && checkAdjacent(4,5) )
                 return true;
             else if ( checkAdjacent(6,7) && checkAdjacent(7,8))
                 return true;
 
-                //vertical win check
+            // Verticaal winnen
             else if ( checkAdjacent(0,3) && checkAdjacent(3,6))
                 return true;
             else if ( checkAdjacent(1,4) && checkAdjacent(4,7))
@@ -86,27 +85,24 @@ public class TicTacToe extends JPanel
             else if ( checkAdjacent(2,5) && checkAdjacent(5,8))
                 return true;
 
-                //diagonal win check
+            // Diagonaal winnen
             else if ( checkAdjacent(0,4) && checkAdjacent(4,8))
                 return true;
             else return checkAdjacent(2, 4) && checkAdjacent(4, 6);
-
-
         }
 
         public boolean checkAdjacent(int a, int b)
         {
             return buttons[a].getText().equals(buttons[b].getText()) && !buttons[a].getText().equals("");
         }
-
     }
 
     public static void main(String[] args)
     {
-        JFrame window = new JFrame("Tic-Tac-Toe");
+        JFrame window = new JFrame("TicTacToe");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().add(new TicTacToe());
-        window.setBounds(300,200,300,300);
+        window.setBounds(300,300,300,300);
         window.setVisible(true);
     }
 }
