@@ -23,6 +23,7 @@ public class TicTacToe extends JPanel
 
     public void initializebuttons()
     {
+        // De knoppen 0 t/m 8 worden gevormd, dus 9 knoppen.
         for(int i = 0; i <= 8; i++)
         {
             buttons[i] = new JButton();
@@ -55,8 +56,8 @@ public class TicTacToe extends JPanel
                 buttonClicked.setText("O");
             if(checkForWin())
             {
-                JOptionPane.showConfirmDialog(null, "Game Over. Try  " +
-                        "again");
+                JOptionPane.showConfirmDialog(null, "Je hebt " +
+                        "gewonnen!");
                 resetButtons();
             }
             alternate++;
@@ -64,11 +65,6 @@ public class TicTacToe extends JPanel
 
         public boolean checkForWin()
         {
-            /*   Reference: the button array is arranged like this as the board
-                   0 | 1 | 2
-                   3 | 4 | 5
-                   6 | 7 | 8
-             */
             // Horizontaal winnen
             if( checkAdjacent(0,1) && checkAdjacent(1,2) )
                 return true;
@@ -99,6 +95,7 @@ public class TicTacToe extends JPanel
 
     public static void main(String[] args)
     {
+        // New Frame maken
         JFrame window = new JFrame("TicTacToe");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().add(new TicTacToe());
