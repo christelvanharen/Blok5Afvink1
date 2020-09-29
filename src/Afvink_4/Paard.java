@@ -19,8 +19,6 @@ public class Paard {
     private Image plaatje;
     Random random = new Random();
 
-
-
     /** Constructor voor Paard, overloaded en zonder images
      en een default kleur */
     Paard(String naam) {
