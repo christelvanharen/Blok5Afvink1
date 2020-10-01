@@ -1,4 +1,4 @@
-import Afvink_4.Paard;
+package Afvink_4;
 
 import javax.swing.*;
 import java.awt.*;
