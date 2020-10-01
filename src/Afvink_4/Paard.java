@@ -1,10 +1,10 @@
 package Afvink_4;
+
 /**
- * Paard class
- *
- * @author Martijn van der Bruggen
- * (c) Hogeschool van Arnhem en Nijmegen
- * @version alpha release
+ Paard class
+ @author Martijn van der Bruggen
+ (c) Hogeschool van Arnhem en Nijmegen
+ @version alpha release
  */
 
 import java.awt.*;
@@ -19,7 +19,6 @@ public class Paard {
     private Color kleur;  //kleur van de streep/paard
     private Image plaatje;
     Random random = new Random();
-
 
 
     /** Constructor voor Paard, overloaded en zonder images
@@ -58,10 +57,8 @@ public class Paard {
         return this.plaatje;
     }
 
-    /**
-     * Laat het paard een willekeurig aantal posities lopen
-     * Verhoog de x met een waarde tussen 0 en 11
-     */
+    /** Laat het paard een willekeurig aantal posities lopen
+     erhoog de x met een waarde tussen 0 en 11 */
     public void loop() {
         this.x = this.x + random.nextInt(11);
         System.out.println(this.naam + " is op positie " +this.x);

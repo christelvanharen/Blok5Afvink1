@@ -13,7 +13,7 @@ public class Paardenrace extends JPanel {
     Paard friendlyHorse, enemyHorse;
     String friendlyHorseName, enemyHorseName;
     Graphics draw;
-    int finishAfstand = 600;
+    int finishAfstand = 500;
     boolean finish, gameSet = false;
     int friendlyAfstand, enemyAfstand;
 
@@ -22,21 +22,20 @@ public class Paardenrace extends JPanel {
     }
 
     public Paardenrace() {
-
-        // Construct GUI frame
+        // Er wordt een nieuw frame gemaakt
         frame = new JFrame();
-        frame.setSize(1000, 400);
+        frame.setSize(800, 400);
         frame.setBackground(Color.GRAY);
         frame.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        //natural height, maximum width
         c.fill = GridBagConstraints.HORIZONTAL;
 
+        // De knop om de paardenrace mee te starten
         startButton = new JButton("Start de paardenrace");
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!gameSet) {
+                if (!gameSet){
                     gameSetup();
                     runLoop();
                 }
@@ -46,8 +45,9 @@ public class Paardenrace extends JPanel {
         c.gridy = 0;
         frame.add(startButton, c);
 
+        // Het frame waar de paardenrace in gaat plaatsvinden
         panel = new JPanel();
-        panel.setPreferredSize(new Dimension(900, 300));
+        panel.setPreferredSize(new Dimension(700, 300));
         panel.setBackground(Color.WHITE);
         c.ipadx = 0;
         c.ipady = 0;
@@ -55,28 +55,26 @@ public class Paardenrace extends JPanel {
         c.gridy = 1;
         c.gridwidth = 3;
         frame.add(panel, c);
-
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 
     public void gameSetup() {
+        // De namen van de paarden kunnen hier worden ingegeven
         draw = panel.getGraphics();
-        // User input
         friendlyHorseName = JOptionPane.showInputDialog(panel, "Naam van je paard?");
         enemyHorseName = JOptionPane.showInputDialog(panel, "Naam van je tegenstander?");
 
-        // Construct paard(en)
         friendlyHorse = new Paard(friendlyHorseName);
         enemyHorse = new Paard(enemyHorseName);
-
         panel.removeAll();
         panel.updateUI();
-
         gameSet = true;
     }
 
     public void endGame() {
+        // Als de paardenrace is afgelopen dan wordt er een van de
+        // volgende messages weergegeven.
         String winningMessage;
         if (friendlyHorse.getAfstand() >= finishAfstand && enemyHorse.getAfstand() >= finishAfstand) {
             JOptionPane.showMessageDialog(frame, "Het is gelijkspel!");
@@ -90,10 +88,11 @@ public class Paardenrace extends JPanel {
     }
 
     public void pause(int mSec) {
+        // Zorgt ervoor dat je de voortgang van de paarden kunt zien
         try {
             Thread.sleep(mSec);
         } catch (InterruptedException e) {
-            System.out.println("Pauze intteruptie");
+            System.out.println("De game staat op pauze");
         }
     }
 
@@ -101,20 +100,22 @@ public class Paardenrace extends JPanel {
         friendlyAfstand = friendlyHorse.getAfstand();
         enemyAfstand = enemyHorse.getAfstand();
 
+        // Geeft de finishline weer
         draw.setColor(Color.BLACK);
-        draw.drawLine(700, 90, 700, 240);
+        draw.drawLine(600, 90, 600, 240);
         draw.drawString(friendlyHorseName, 100, 90);
         draw.drawString(enemyHorseName, 100, 190);
 
+        // Geeft de paarden weer
         while (!finish) {
             if (friendlyAfstand < finishAfstand && enemyAfstand < finishAfstand) {
                 friendlyHorse.loop();
                 enemyHorse.loop();
                 friendlyAfstand = friendlyHorse.getAfstand();
                 enemyAfstand = enemyHorse.getAfstand();
-                draw.setColor(Color.BLUE);
+                draw.setColor(Color.ORANGE);
                 draw.fillRect(100, 100, friendlyHorse.getAfstand(), 30);
-                draw.setColor(Color.RED);
+                draw.setColor(Color.PINK);
                 draw.fillRect(100, 200, enemyHorse.getAfstand(), 30);
                 pause(20);
             } else {
