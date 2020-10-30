@@ -1,4 +1,5 @@
-package Afvink_7;
+package Afvink_7.SeqVis;
+
 /**
  * @author: Christel van Haren
  * Blok 5, Afvinkopdracht 7: Sequentie visualiseren
@@ -42,7 +43,7 @@ public class Gui {
         tekenpaneel = new JPanel();
         tekenpaneel.setPreferredSize(new Dimension(500, 100));
         tekenpaneel.setBackground(Color.white);
-        paneel.add(tekenpaneel);
+        tekenpaneel.add(paneel);
         tekenpaneel.setVisible(true);
 
         kiesEenBestandButton.addActionListener(new ActionListener() {
@@ -113,6 +114,7 @@ public class Gui {
                 if (jDNA == t) {
                     textArea.setText("DNA: " + seq);
                     DNA d1 = new DNA();
+                    assert seq != null;
                     d1.setgcpers(seq);
                     textArea.setText("Het GC-percentage is " + d1.getgcpers() + "%");
                     System.out.println(d1.getgcpers());

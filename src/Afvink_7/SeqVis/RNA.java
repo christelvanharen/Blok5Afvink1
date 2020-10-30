@@ -1,4 +1,4 @@
-package Afvink_7;
+package Afvink_7.SeqVis;
 
 /**
  * @author: Christel van Haren
@@ -11,7 +11,7 @@ public class RNA {
     protected Color color;
     public void setcolor(char a) {
         /**
-         * geeft kleur aan nucleotiden GC (rood), A(geel) en U (blauw)
+         * Een kleur meegeven aan GC (rood), A (geel) en U (blauw)
          */
         if (a == 'G' || a == 'C') {
             color = Color.RED;
@@ -24,9 +24,6 @@ public class RNA {
     }
 
     public Color getColor() {
-        /**
-         * @return de kleur horden bij nucleotiden
-         */
         return color;
     }
 }

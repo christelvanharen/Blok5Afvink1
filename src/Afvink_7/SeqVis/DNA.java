@@ -1,4 +1,4 @@
-package Afvink_7;
+package Afvink_7.SeqVis;
 /**
  * @author: Christel van Haren
  * DNA eiwit
@@ -13,7 +13,7 @@ public class DNA {
 
     public void setgcpers(String seq) {
         /**
-         * GC vormen door G en C te tellen daarna hier percentages van te maken
+         * Het GC% berekenen
          */
         int gc = 0;
         for (int i = 0; i < seq.length(); i++) {
@@ -26,15 +26,12 @@ public class DNA {
     }
 
     public int getgcpers() {
-        /**
-         * @return gc percentage als int
-         */
         return gcpers;
     }
 
     public void setcolor(char a) {
         /**
-         * kleur geven aan GC (rood) of AT(geel)
+         * Een kleur meegeven aan GC (rood) of AT (geel)
          */
         if (a == 'G' || a == 'C') {
             color = Color.RED;
@@ -44,9 +41,6 @@ public class DNA {
     }
 
     public Color getColor() {
-        /**
-         * @return kleur van nucleotide
-         */
         return color;
     }
 }

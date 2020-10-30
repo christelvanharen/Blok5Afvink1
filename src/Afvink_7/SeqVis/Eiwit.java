@@ -1,4 +1,4 @@
-package Afvink_7;
+package Afvink_7.SeqVis;
 
 /**
  * @author: Christel van Haren
@@ -14,7 +14,7 @@ public class Eiwit {
 
     public void setcolor(char a) {
         /**
-         * geeft kleur aan aminozuren polair (blauw) apolair (rood)
+         * Een kleur meegeven aan polair (blauw) en apolair (rood)
          */
         for (int x = 0; x < ONE.length; x++) {
             char s = ONE[x].charAt(0);
@@ -29,9 +29,6 @@ public class Eiwit {
     }
 
     public Color getColor() {
-        /**
-         * @return de kleur horende bij aminozuur
-         */
         return color;
     }
 }
