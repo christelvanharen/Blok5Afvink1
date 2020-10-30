@@ -26,7 +26,7 @@ public class Gui {
     private final JPanel tekenpaneel;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Gui");
+        JFrame frame = new JFrame("Visualisatie");
         frame.setContentPane(new Gui().paneel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(600, 400));
@@ -114,6 +114,7 @@ public class Gui {
                     textArea.setText("DNA: " + seq);
                     DNA d1 = new DNA();
                     d1.setgcpers(seq);
+                    textArea.setText("Het GC-percentage is " + d1.getgcpers() + "%");
                     System.out.println(d1.getgcpers());
 
                     Graphics tekenveld = tekenpaneel.getGraphics();
@@ -140,7 +141,7 @@ public class Gui {
                         afstand += 10;
                     }
                 } else if (jeiwit == t) {
-                    textArea.setText("eiwit: " + seq);
+                    textArea.setText("Eiwit: " + seq);
                     Eiwit p1 = new Eiwit();
                     Graphics tekenveld = tekenpaneel.getGraphics();
                     int afstand = 50;
