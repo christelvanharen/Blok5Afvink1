@@ -1,8 +1,8 @@
 package Afvink_7;
 
 /**
- * @author Jasper Versantvoort
- * class peptide
+ * @author: Christel van Haren
+ * Eiwit class
  */
 
 import java.awt.*;

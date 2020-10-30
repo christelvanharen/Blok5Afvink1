@@ -1,7 +1,7 @@
 package Afvink_7;
 /**
- * @author Jasper Versantvoort
- * class DNA
+ * @author: Christel van Haren
+ * DNA eiwit
  */
 
 import java.awt.*;

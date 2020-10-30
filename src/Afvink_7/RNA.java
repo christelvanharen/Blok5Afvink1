@@ -1,8 +1,8 @@
 package Afvink_7;
 
 /**
- * @author Jasper Versantvoort
- * class RNA
+ * @author: Christel van Haren
+ * RNA class
  */
 
 import java.awt.*;
