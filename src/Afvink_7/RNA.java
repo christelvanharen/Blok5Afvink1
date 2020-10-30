@@ -1,4 +1,5 @@
 package Afvink_7;
+
 /**
  * @author Jasper Versantvoort
  * class RNA
@@ -29,4 +30,3 @@ public class RNA {
         return color;
     }
 }
-

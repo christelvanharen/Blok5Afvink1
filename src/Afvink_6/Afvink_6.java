@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 
 public class Afvink_6 {
-    private JPanel Afvink_6;
+    private JPanel panel;
     private JButton bestand_inlezen;
     private JTextField pathway_bestand;
     private JButton Analyseren;
@@ -30,7 +30,7 @@ public class Afvink_6 {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("YANAARA");
-        frame.setContentPane(new Afvink_6().Afvink_6);
+        frame.setContentPane(new Afvink_6().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
